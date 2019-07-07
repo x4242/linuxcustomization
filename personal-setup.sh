@@ -48,7 +48,8 @@ sudo pacman -Syyu --noconfirm
 if [[ $(command -v systemd-detect-virt 2>/dev/null) ]]; then
   printf "${STR_INFO} Checking if system is running in VM...\n"
   if [[ "$(systemd-detect-virt)" == "oracle" ]]; then
-    read -p "${STR_INPUT} System seems to run in Oracle VirtualBox, install VirtualBox Guest Additions (y/n)? " yes_no
+    printf "${STR_INPUT} System seems to run in Oracle VirtualBox, install VirtualBox Guest Additions (y/n)? "
+    read yes_no
     case $yes_no in
       [Yy]* ) sudo pacman -S --needed virtualbox-guest-utils
     esac

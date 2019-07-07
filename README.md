@@ -18,6 +18,7 @@ featuredimg: ""
 
 ## xfce
 * **TODO**:
+  * get it working
   * add dotfiles to be linked
 
 ## Firefox
@@ -28,5 +29,8 @@ featuredimg: ""
 ## tmux
 * config only valid for tmux >= 2.9 as changes for \*-style options in v2.9
 * **TODO**:
-  * document config
+  * document/comment config file
   * modify statusbar script
+
+## lightdm & greeter
+tbd, not started
