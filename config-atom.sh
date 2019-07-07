@@ -16,5 +16,6 @@ apm install busy-signal
 apm install linter-pylint
 
 # linking config files
+if [[ ! -d  ~/.atom ]]; mkdir ~/.atom; fi
 ln -s ./dotfiles/atom/config.cson ~/.atom/config.cson
 ln -s ./dotfiles/atom/keymap.cson ~/.atom/keymap.cson

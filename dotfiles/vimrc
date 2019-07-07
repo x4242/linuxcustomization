@@ -16,6 +16,7 @@ filetype plugin indent on    " required
 
 set laststatus=2  " fix for when lightline is not showing
 
+set laststatus=2
 set encoding=utf-8
 set number
 syntax on
