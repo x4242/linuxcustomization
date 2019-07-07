@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+#
+# link config file, install vundle plugin manager and customize colores
+# lastmod: 2019-07-07T15:37:54+02:00
 
-# lastmod: 2019-07-07T00:11:59+02:00
-
-cp ./dotfiles/vimrc ~/.vimrc
+ln -s ./dotfiles/vimrc ~/.vimrc
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 

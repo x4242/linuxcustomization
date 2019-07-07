@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
+#
+# setup custom firefox profiles
+# lastmod: 2019-07-07T15:57:07+02:00
 
-# lastmod: 2019-06-21T12:44:00+02:00
-
+# remove existing profiles and cache
 rm -rf ~/.mozilla
 rm -rf ~/.cache/mozilla
 
+##########################################
 # Create and configure browsing profile
+##########################################
 profile_name="browsing"
 firefox -CreateProfile ${profile_name}
 firefox -P ${profile_name} &
@@ -21,7 +25,12 @@ wget https://addons.mozilla.org/firefox/downloads/file/3015452/https_everywhere.
 wget https://addons.mozilla.org/firefox/downloads/file/1688114/privacy_badger.xpi -O ${extensions_path}jid1-MnnxcxisBPnSXQ@jetpack.xpi
 wget https://addons.mozilla.org/firefox/downloads/file/621553/disconnect.xpi -O ${extensions_path}2.0@disconnect.me.xpi
 
+cp ./dotfiles/firefox/browsing-user.js ~/.mozilla/firefox/*${profile_name}/user.js
+
+
+##########################################
 # Create and configure pentesting profile
+##########################################
 profile_name="pentesting"
 firefox -CreateProfile ${profile_name}
 firefox -P ${profile_name} &
