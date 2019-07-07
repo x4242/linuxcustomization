@@ -1,0 +1,19 @@
+"*":
+  core:
+    disabledPackages: [
+      "metrics"
+      "language-gfm"
+      "markdown-preview"
+    ]
+    telemetryConsent: "no"
+  date:
+    dateTimeFormat: "YYYY-MM-DDTHH:mm:ssZ"
+  editor:
+    showIndentGuide: true
+  "line-ending-selector":
+    defaultLineEnding: "LF"
+  "markdown-preview-enhanced":
+    openPreviewPaneAutomatically: false
+    previewTheme: "one-dark.css"
+  welcome:
+    showOnStartup: false

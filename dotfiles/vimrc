@@ -1,0 +1,32 @@
+" lastmod: 2019-07-03T15:27:05+02:00
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Keep Plugin commands between vundle#begin/end.
+Plugin 'VundleVim/Vundle.vim'   " let Vundle manage Vundle, required
+Plugin 'itchyny/lightline.vim'  " https://github.com/itchyny/lightline.vim
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+set laststatus=2  " fix for when lightline is not showing
+
+set encoding=utf-8
+set number
+syntax on
+set hidden
+set cursorline
+colo one
+set background=dark
+hi Normal ctermbg=black
+hi cursorlinenr cterm=none ctermbg=darkgrey
+set showmatch
+set wildmenu
+set confirm
+set visualbell
+set mouse=

@@ -1,0 +1,4 @@
+# lastmod: 2019-06-23T10:35:03+02:00
+
+alias firefox='firefox -P'
+alias vi='vim'
