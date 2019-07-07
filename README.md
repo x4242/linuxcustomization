@@ -11,8 +11,10 @@ featuredimg: ""
 # Dotfiles and Setup Notes
 
 ## General
-* TODO:
+* develeoped/test with/for Manjaro 18.04
+* **TODO**:
   * find a way to bypass sudo password prompt (set timeout to = temprorily?)
+  * TEST!!!!!!!!!
 
 ## xfce
 * **TODO**:
@@ -25,6 +27,6 @@ featuredimg: ""
 
 ## tmux
 * config only valid for tmux >= 2.9 as changes for \*-style options in v2.9
-* TODO:
+* **TODO**:
   * document config
   * modify statusbar script
