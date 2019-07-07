@@ -39,13 +39,19 @@ printf "${STR_INFO} Upgrading packages...\n"
 sudo pacman -Syyu --noconfirm
 
 ##########################################
-# if installed in VirtualBox
+# Check if running in VM
+# ----------------------------------------
+# - installation of VBoxGuestUtils require user interaction to install correct
+#   headers -> therefore no '--noconfirm'
+# - other VMs tbd
 ##########################################
 if [[ $(command -v systemd-detect-virt 2>/dev/null) ]]; then
   printf "${STR_INFO} Checking if system is running in VM...\n"
   if [[ "$(systemd-detect-virt)" == "oracle" ]]; then
-    printf "${STR_INFO} System seems to run in Oracle VirtualBox, installing VirtualBox Guest Additions...\n"
-    sudo pacman -S --noconfirm --needed virtualbox-guest-utils
+    read -p "${STR_INPUT} System seems to run in Oracle VirtualBox, install VirtualBox Guest Additions (y/n)? " yes_no
+    case $yes_no in
+      [Yy]* ) sudo pacman -S --needed virtualbox-guest-utils
+    esac
   fi
 else
   printf "${STR_ERROR} 'systemd-detect-virt' not found, can't check if running in VM.\n" >&2
@@ -120,8 +126,8 @@ yay -S --noconfirm responder
 # Install AUR customizations
 ##########################################
 printf "${STR_INFO} Installing AUR customization packages...\n"
-sudo -u $SUDO_USER yay -S --noconfirm equilux-theme
-sudo -u $SUDO_USER yay -S --noconfirm ttf-roboto-mono
+yay -S --noconfirm equilux-theme
+yay -S --noconfirm ttf-roboto-mono
 
 ##########################################
 # Create directories and links
@@ -160,7 +166,7 @@ bash ./config-atom.sh
 ##########################################
 # xfce config
 ##########################################
-printf "${STR_INFO} Configuring XFCE...\n"
+printf "${STR_INFO} Configuring xfce4...\n"
 bash ./config-xfce.sh
 
 ##########################################

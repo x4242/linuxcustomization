@@ -3,7 +3,7 @@
 # link config file, install vundle plugin manager and customize colores
 # lastmod: 2019-07-07T15:37:54+02:00
 
-ln -s ./dotfiles/vimrc ~/.vimrc
+ln -sf $(pwd)/dotfiles/vimrc ~/.vimrc
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 

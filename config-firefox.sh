@@ -25,7 +25,7 @@ wget https://addons.mozilla.org/firefox/downloads/file/3015452/https_everywhere.
 wget https://addons.mozilla.org/firefox/downloads/file/1688114/privacy_badger.xpi -O ${extensions_path}jid1-MnnxcxisBPnSXQ@jetpack.xpi
 wget https://addons.mozilla.org/firefox/downloads/file/621553/disconnect.xpi -O ${extensions_path}2.0@disconnect.me.xpi
 
-cp ./dotfiles/firefox/browsing-user.js ~/.mozilla/firefox/*${profile_name}/user.js
+cp $(pwd)/dotfiles/firefox/browsing-user.js ~/.mozilla/firefox/*${profile_name}/user.js
 
 
 ##########################################
@@ -43,7 +43,7 @@ extensions_path="$(dirname ~/.mozilla/firefox/*${profile_name}/extensions)/exten
 wget https://addons.mozilla.org/firefox/downloads/file/969185/foxyproxy_standard.xpi  -O ${extensions_path}foxyproxy@eric.h.jung.xpi
 
 # Import firefox settings
-cp ./dotfiles/firefox/pentesting-user.js ~/.mozilla/firefox/*${profile_name}/user.js
+cp $(pwd)/dotfiles/firefox/pentesting-user.js ~/.mozilla/firefox/*${profile_name}/user.js
 
 # Import burp cert: start burp in headless mode (yes for confirming tos), download cert, import cert into firefox, kill java
 yes | java -jar -Djava.awt.headless=true /usr/share/burpsuite/burpsuite.jar &
