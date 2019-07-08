@@ -1,15 +1,80 @@
 #!/usr/bin/env bash
 #
-# lastmod: 2019-07-07T22:22:20+02:00
+# lastmod: 2019-07-08T21:18:52+02:00
 
+##########################################
+# xfce4 settings
+##########################################
+# set xfce4 theme
+xfconf-query -c xsettings -p /Net/ThemeName -s "Equilux"
+# set xfce4 icon theme
+xfconf-query -c xsettings -p /Net/ThemeName -s "Papirus-Dark"
+# set default font
+xfconf-query -c xsettings -p /Gtk/FontName -s "Roboto Mono Regular 10"
+# set default monospace font
+xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Roboto Mono Regular 10"
+
+
+##########################################
+# xfwm4 window manager settings
+##########################################
+# set xfwm4 window manager theme
+xfconf-query -c xfwm4 -p /generl/theme -s "Equilux"
+# set xfwm4 window manager title font
+xfconf-query -c xfwm4 -p /general/title_font -s "Roboto Mono Regular 10"
+
+
+##########################################
+# desktop settings
+##########################################
+# hide desktop icons
+xfconf-query -c xfce4-desktop -p /desktop-icons/style -s 0
+#xfconf-query -c xfce4-desktop -p /backdrop/screen0/
+
+##########################################
+# panel settings
+##########################################
+# set panel position to top (p=6), no idea what x/y does
+xfconf-query- -c xfce4-panel -p /panels/panel-0/position -s "p=6;x=400;y=14"
+
+
+##########################################
+# thunar config
+##########################################
+# show hidden files
+xfconf-query -c thunar -p /last-show-hidden -s true
+# set default view to 'details'
+xfconf-query -c thunar -p /default-view -s "ThunarDetailsView"
+# sort by type
+xfconf-query -c thunar -p /last-sort-column -s "THUNAR_COLUMN_TYPE"
+# sort in ascending order
+xfconf-query -c thunar -p /last-sort-order -s "GTK_SORT_ASCENDING"
+# sort folder first
+xfconf-query -c thunar -p /misc-folders-first -s true
+# column to show and order
+xfconf-query -c thunar -p /last-details-view-column-order -s "HUNAR_COLUMN_NAME,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_TYPE,THUNAR_COLUMN_DATE_MODIFIED"
+# visible colummns in details view
+xfconf-query -c thunar -p /last-details-view-visible-columns -s "THUNAR_COLUMN_DATE_MODIFIED,THUNAR_COLUMN_NAME,THUNAR_COLUMN_OWNER,THUNAR_COLUMN_PERMISSIONS,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_TYPE"
+# set date stle YYYY-MM-DD
+xfconf-query -c thunar -p /misc-date-style -s "THUNAR_DATE_STYLE_YYYYMMDD"
+
+xfconf-query -c thunar -p /misc-thumbnail-mode -s "THUNAR_THUMBNAIL_MODE_ONLY_LOCAL"
+xfconf-query -c thunar -p /misc-thumbnail-draw-frames -s false
+xfconf-query -c thunar -p /last-menubar-visible -s true
+xfconf-query -c thunar -p /misc-file-size-binary -s true
+
+
+##########################################
 # config plank
 # see also https://wiki.archlinux.org/index.php/Plank
+##########################################
 cat ./dotfiles/config/plank/plank.ini | dconf load /net/launchpad/plank/docks/
 if [[ -d  ~/.config/plank ]]; then rm -rf ~/.config/plank; fi
 ln -sf $(pwd)/dotfiles/config/plank ~/.config/plank
 
-# copy xfce4 config files
-cp -rf ./dotfiles/config/xfce4/* ~/.config/xfce4
 
-# qt config
-cp -rf ./dotfiles/config/qt5ct/* ~/.config/qt5ct
+##########################################
+# autostart entries
+##########################################
+ln -sf  $(pwd)/dotfiles/config/Nextcloud-client.desktop ~/.config/autostart/Nextcloud-client.desktop
+ln -sf  $(pwd)/dotfiles/config/plank.desktop ~/.config/autostart/plank.desktop
