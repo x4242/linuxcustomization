@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# lastmod: 2019-07-07T16:05:58+02:00
+# lastmod: 2019-07-10T21:07:53+02:00
 
 # String definitions for colored printf output
 # [ ERROR ] in red
@@ -41,18 +41,29 @@ sudo pacman -Syyu --noconfirm
 ##########################################
 # Check if running in VM
 # ----------------------------------------
-# - installation of VBoxGuestUtils require user interaction to install correct
+# - installation of VBoxGuestUtils requires user interaction to install correct
 #   headers -> therefore no '--noconfirm'
-# - other VMs tbd
+# - other VMs tbd?
 ##########################################
 if [[ $(command -v systemd-detect-virt 2>/dev/null) ]]; then
   printf "${STR_INFO} Checking if system is running in VM...\n"
-  if [[ "$(systemd-detect-virt)" == "oracle" ]]; then
+  # if VirtualBox
+  virtual_env=$(systemd-detect-virt)
+  if [[ virtual_env == "oracle" ]]; then
     printf "${STR_INPUT} System seems to run in Oracle VirtualBox, install VirtualBox Guest Additions (y/n)? "
     read yes_no
     case $yes_no in
       [Yy]* ) sudo pacman -S --needed virtualbox-guest-utils
     esac
+  #if VMware
+  elif [[ virtual_env == "vmware" ]]; then
+    printf "${STR_INPUT} System seems to run in VMware environment, install Open-VM-Tools (y/n)? "
+    read yes_no
+    case $yes_no in
+      [Yy]* ) sudo pacman -S --needed open-vm-tools
+    esac
+  else
+    printf "${STR_ERROR} 'systemd-detect-virt' detected '${virtual_env}'. Nothing defined to be installed for that environmentn" >&2
   fi
 else
   printf "${STR_ERROR} 'systemd-detect-virt' not found, can't check if running in VM.\n" >&2
@@ -76,6 +87,7 @@ sudo pacman -S --noconfirm --needed netcat
 sudo pacman -S --noconfirm --needed nmap
 sudo pacman -S --noconfirm --needed net-snmp
 sudo pacman -S --noconfirm --needed filezilla
+sudo pacman -S --noconfirm --needed dnsutils
 
 ##########################################
 # Install pentesting tools

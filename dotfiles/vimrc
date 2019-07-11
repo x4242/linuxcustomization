@@ -1,11 +1,13 @@
-" lastmod: 2019-07-03T15:27:05+02:00
+" lastmod: 2019-07-10T12:12:16+02:00
 
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 " Keep Plugin commands between vundle#begin/end.
 Plugin 'VundleVim/Vundle.vim'   " let Vundle manage Vundle, required
 Plugin 'itchyny/lightline.vim'  " https://github.com/itchyny/lightline.vim
@@ -16,18 +18,52 @@ filetype plugin indent on    " required
 
 set laststatus=2  " fix for when lightline is not showing
 
+" Last window will have status line: 2=always
+" - http://vimdoc.sourceforge.net/htmldoc/options.html#'laststatus'
+" - also fix for'lightline' plugin if not shown,
+"   see https://github.com/itchyny/lightline.vim
 set laststatus=2
+
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'encoding'
 set encoding=utf-8
+
+" Print line numbering.
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'number'
 set number
+
+" Enable syntax highlighting.
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'syntax'
 syntax on
+
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'hidden'
 set hidden
+
+" Highlight the screen line of the cursor.
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'cursorline'
 set cursorline
+
+" tbd
 colo one
+
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'background'
 set background=dark
-hi Normal ctermbg=black
-hi cursorlinenr cterm=none ctermbg=darkgrey
+
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'highlight'
+highlight Normal ctermbg=black
+highlight cursorlinenr cterm=none ctermbg=darkgrey
+
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'showmatch'
 set showmatch
+
+" Set command-line completion in enhanced mode.
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'wildmenu'
 set wildmenu
+
+" Ask if you wish to save the current	file(s).
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'confirm'
 set confirm
+
+" Use visual bell instead of beeping.
+" http://vimdoc.sourceforge.net/htmldoc/options.html#'visualbell'
 set visualbell
 set mouse=

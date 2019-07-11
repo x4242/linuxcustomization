@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# lastmod: 2019-07-08T21:18:52+02:00
+# lastmod: 2019-07-08T22:30:53+02:00
 
 ##########################################
 # xfce4 settings
@@ -58,6 +58,7 @@ xfconf-query -c thunar -p /last-details-view-visible-columns -s "THUNAR_COLUMN_D
 # set date stle YYYY-MM-DD
 xfconf-query -c thunar -p /misc-date-style -s "THUNAR_DATE_STYLE_YYYYMMDD"
 
+#
 xfconf-query -c thunar --create -p /misc-thumbnail-mode -t string -n "THUNAR_THUMBNAIL_MODE_ONLY_LOCAL"
 xfconf-query -c thunar --create -p /misc-thumbnail-draw-frames -t bool -n false
 xfconf-query -c thunar --create -p /last-menubar-visible -t bool -n true
@@ -67,12 +68,14 @@ xfconf-query -c thunar --create -p /misc-file-size-binary -t bool -n true
 ##########################################
 # config panel
 ##########################################
+# link seems to be overwritten after logout, but file content stays the same
 ln -sf  $(pwd)/dotfiles/config/xfce4/panel/whiskermenu-8.rc ~/.config/xfce4/panel/whiskermenu-8.rc
 
 
 ##########################################
-# config plank
-# see also https://wiki.archlinux.org/index.php/Plank
+# plank config
+# ----------------------------------------
+# - see also https://wiki.archlinux.org/index.php/Plank
 ##########################################
 cat ./dotfiles/config/plank/plank.ini | dconf load /
 if [[ -d  ~/.config/plank ]]; then rm -rf ~/.config/plank; fi
