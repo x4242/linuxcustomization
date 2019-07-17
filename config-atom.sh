@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # install atom packeages and link config files
-# lastmod: 2019-07-07T22:08:58+02:00
+# lastmod: 2019-07-17T12:55:07+02:00
 
 # insstall packages
 apm install date
@@ -14,6 +14,7 @@ apm install linter-ui-default
 apm install intentions
 apm install busy-signal
 apm install linter-pylint
+apm install autocomplete-python
 
 # linking config files
 if [[ ! -d  ~/.atom ]]; then mkdir ~/.atom; fi
