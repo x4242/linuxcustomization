@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# description: tbd
-# lastmod: 2019-07-18T10:31:31+02:00
+# description: installation and configuration of virtualization packages
+# lastmod: 2019-07-18T22:32:20+02:00
 # change history:
 #  - 2019-07-18: created
 
@@ -15,8 +15,12 @@ STR_INPUT="[ \e[1;33mINPUT\e[0m ]"
 
 printf "%s Installing virtualization packages...\n" "${STR_INFO}"
 
-# qemu
-# libvirt
-# virt-manager
+sudo pacman -S --noconfirm --needed qemu
+sudo pacman -S --noconfirm --needed libvirt
+sudo pacman -S --noconfirm --needed virt-manager
 
-# systemctl enable libtvrt service
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
+
+printf "%s Done installing virtualization packages.\n" "${STR_INFO}"
+exit 0

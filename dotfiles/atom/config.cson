@@ -12,6 +12,8 @@
     showIndentGuide: true
   "line-ending-selector":
     defaultLineEnding: "LF"
+  "linter-ui-default":
+    showPanel: true
   "markdown-preview-enhanced":
     openPreviewPaneAutomatically: false
     previewTheme: "one-dark.css"

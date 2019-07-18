@@ -69,7 +69,7 @@ xfconf-query -c thunar --create -p /misc-file-size-binary -t bool -n true
 # config panel
 ##########################################
 # link seems to be overwritten after logout, but file content stays the same
-ln -sf  $(pwd)/dotfiles/config/xfce4/panel/whiskermenu-8.rc ~/.config/xfce4/panel/whiskermenu-8.rc
+ln -sf  "$(pwd)"/dotfiles/config/xfce4/panel/whiskermenu-8.rc ~/.config/xfce4/panel/whiskermenu-8.rc
 
 
 ##########################################
@@ -79,7 +79,7 @@ ln -sf  $(pwd)/dotfiles/config/xfce4/panel/whiskermenu-8.rc ~/.config/xfce4/pane
 ##########################################
 cat ./dotfiles/config/plank/plank.ini | dconf load /
 if [[ -d  ~/.config/plank ]]; then rm -rf ~/.config/plank; fi
-ln -sf $(pwd)/dotfiles/config/plank ~/.config/plank
+ln -sf "$(pwd)"/dotfiles/config/plank ~/.config/plank
 
 
 ##########################################

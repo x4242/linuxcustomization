@@ -4,9 +4,9 @@
 # lastmod: 2019-07-10T12:47:43+02:00
 
 # link .vimrc
-ln -sf $(pwd)/dotfiles/vimrc ~/.vimrc
+ln -sf "$(pwd)"/dotfiles/vimrc ~/.vimrc
 
-# vundle pligin manmager
+# vundle plugin manmager
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # vim-one color scheme from https://github.com/rakr/vim-one

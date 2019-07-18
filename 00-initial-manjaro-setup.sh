@@ -53,7 +53,7 @@ if [[ $(command -v systemd-detect-virt 2>/dev/null) ]]; then
   # if VirtualBox
   virtual_env=$(systemd-detect-virt)
   if [[ "${virtual_env}" == "oracle" ]]; then
-    printf "%s System seems to run in Oracle VirtualBox, install VirtualBox Guest Additions (y/n)? " "${STR_INPUT}"
+    printf "%s System seems to run in VirtualBox, install VirtualBox Guest Additions (y/n)? " "${STR_INPUT}"
     read -r yes_no
     case $yes_no in
       [Yy]* ) sudo pacman -S --needed virtualbox-guest-utils
@@ -64,6 +64,17 @@ if [[ $(command -v systemd-detect-virt 2>/dev/null) ]]; then
     read -r yes_no
     case $yes_no in
       [Yy]* ) sudo pacman -S --needed open-vm-tools
+    esac
+  # if QEMU
+  elif [[ "${virtual_env}" == "qemu" ]]; then
+    printf "%s System seems to run in QEMU environment, install QEMU Guest Agent (y/n)? " "${STR_INPUT}"
+    read -r yes_no
+    case $yes_no in
+      [Yy]* )
+        sudo pacman -S --needed qemu-guest-agent
+        sudo systemctl enable qemu-guest-agent
+        sudo systemctl start qemu-guest-agent
+        ;;
     esac
   else
     printf "%s 'systemd-detect-virt' detected '%s'. Nothing defined to be installed for this environmentn\n" "${STR_ERROR}" "${virtual_env}" >&2
@@ -82,7 +93,7 @@ sudo pacman -S --noconfirm --needed yay
 # Remove orphans
 ##########################################
 printf "%s Removing orphans if any...\n" "${STR_INFO}"
-sudo pacman -Rscn --noconfirm $(pacman -Qdtq)
+sudo pacman -Rscn --noconfirm "$(pacman -Qdtq)"
 
 ##########################################
 # Clean pacman and yay caches
