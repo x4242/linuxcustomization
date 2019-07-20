@@ -1,11 +1,25 @@
 #!/usr/bin/env bash
+
+# Description:
+# ------------
+# tbd
 #
-# lastmod: 2019-07-19T12:07:00+02:00
-# change history:
-#  - 2019-07-19:
-#    - bug-fix for plank: disables xfwm shadows under dock windows
-#    - styling corrections
-#    - placeholder for keyboard shortcuts and LightDM+Greeter
+# lastmod: 2019-07-20T21:43:18+02:00
+# Change History:
+# ---------------
+#   - 2019-07-20: prtinf corrections
+#   - 2019-07-19:
+#     - bug-fix for plank: disables xfwm shadows under dock windows
+#     - styling corrections
+#     - placeholder for keyboard shortcuts and LightDM+Greeter
+
+# String definitions for colored printf output
+# [ ERROR ] in light red
+# [ INFO  ] in light green
+# [ INPUT ] in light yellow
+STR_ERROR="[ \e[91mERROR\e[0m ]"
+STR_INFO="[ \e[92mINFO\e[0m  ]"
+STR_INPUT="[ \e[93mINPUT\e[0m ]"
 
 ##########################################
 # xfce4 General Settings

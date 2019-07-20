@@ -1,7 +1,21 @@
 #!/usr/bin/env bash
-#
+
+# Description:
+# ------------
 # setup custom firefox profiles
-# lastmod: 2019-07-18T22:36:21+02:00
+#
+# lastmod: 2019-07-20T21:42:03+02:00
+# Change History:
+# ---------------
+#   - 2019-07-20: printf corrections
+
+# String definitions for colored printf output
+# [ ERROR ] in light red
+# [ INFO  ] in light green
+# [ INPUT ] in light yellow
+STR_ERROR="[ \e[91mERROR\e[0m ]"
+STR_INFO="[ \e[92mINFO\e[0m  ]"
+STR_INPUT="[ \e[93mINPUT\e[0m ]"
 
 # remove existing profiles and cache
 rm -rf ~/.mozilla

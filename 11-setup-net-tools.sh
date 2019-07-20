@@ -1,24 +1,29 @@
 #!/usr/bin/env bash
+
+# Description:
+# ------------
+# tbd
 #
-# description: tbd
-# lastmod: 2019-07-18T10:16:21+02:00
-# change history:
+# lastmod: 2019-07-20T21:36:32+02:00
+# Change History:
+# ---------------
+#   - 2019-07-20: printf corrections
 #   - 2019-07-18: created, moved from personal-setup.sh
 
 # String definitions for colored printf output
-# [ ERROR ] in red
-# [ INFO  ] in green
-# [ INPUT ] in yellow
-STR_ERROR="[ \e[31mERROR\e[0m ]"
-STR_INFO="[ \e[32mINFO\e[0m  ]"
-STR_INPUT="[ \e[1;33mINPUT\e[0m ]"
+# [ ERROR ] in light red
+# [ INFO  ] in light green
+# [ INPUT ] in light yellow
+STR_ERROR="[ \e[91mERROR\e[0m ]"
+STR_INFO="[ \e[92mINFO\e[0m  ]"
+STR_INPUT="[ \e[93mINPUT\e[0m ]"
 
-printf "%s Installing network packages...\n" "${STR_INFO}"
+printf "%b Installing network packages...\n" "${STR_INFO}"
 
 ##########################################
 # Official packages
 ##########################################
-printf "%s Installing official packages...\n" "${STR_INFO}"
+printf "%b Installing official packages...\n" "${STR_INFO}"
 sudo pacman -S --noconfirm --needed wireshark-cli wireshark-qt
 sudo pacman -S --noconfirm --needed tcpdump
 sudo pacman -S --noconfirm --needed netcat
@@ -32,5 +37,5 @@ sudo pacman -S --noconfirm --needed dnsutils
 ##########################################
 # printf "${STR_INFO} Installing AUR packages...\n"
 
-printf "%s Done installing network packages.\n" "${STR_INFO}"
+printf "%b Done installing network packages.\n" "${STR_INFO}"
 exit 0
