@@ -10,6 +10,8 @@
     dateTimeFormat: "YYYY-MM-DDTHH:mm:ssZ"
   editor:
     showIndentGuide: true
+  "exception-reporting":
+    userId: "f709d414-d4bd-47b6-a062-655aa3848532"
   "line-ending-selector":
     defaultLineEnding: "LF"
   "linter-ui-default":

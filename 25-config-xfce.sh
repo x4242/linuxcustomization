@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 #
-# lastmod: 2019-07-08T22:30:53+02:00
+# lastmod: 2019-07-19T12:07:00+02:00
+# change history:
+#  - 2019-07-19:
+#    - bug-fix for plank: disables xfwm shadows under dock windows
+#    - styling corrections
+#    - placeholder for keyboard shortcuts and LightDM+Greeter
 
 ##########################################
-# xfce4 settings
+# xfce4 General Settings
 ##########################################
 # set xfce4 theme
 xfconf-query -c xsettings -p /Net/ThemeName -s "Equilux"
@@ -16,7 +21,7 @@ xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Roboto Mono Regular 10"
 
 
 ##########################################
-# xfwm4 window manager settings
+# xfwm4 Window Manager Settings
 ##########################################
 # set xfwm4 window manager theme
 xfconf-query -c xfwm4 -p /general/theme -s "Equilux"
@@ -25,21 +30,24 @@ xfconf-query -c xfwm4 -p /general/title_font -s "Roboto Mono Regular 10"
 
 
 ##########################################
-# desktop settings
+# Desktop Settings
 ##########################################
 # hide desktop icons
 xfconf-query -c xfce4-desktop -p /desktop-icons/style -s 0
 #xfconf-query -c xfce4-desktop -p /backdrop/screen0/
 
+
 ##########################################
-# panel settings
+# Panel & Menu Configuration
 ##########################################
+# link seems to be overwritten after logout, but file content stays the same
+# ln -sf  "$(pwd)"/dotfiles/config/xfce4/panel/whiskermenu-8.rc ~/.config/xfce4/panel/whiskermenu-8.rc
 # set panel position to top (p=6), no idea what x/y does
 xfconf-query -c xfce4-panel -p /panels/panel-0/position -s "p=6;x=400;y=14"
 
 
 ##########################################
-# thunar config
+# Thunar Configuration
 ##########################################
 # show hidden files
 xfconf-query -c thunar -p /last-show-hidden -s true
@@ -66,24 +74,30 @@ xfconf-query -c thunar --create -p /misc-file-size-binary -t bool -n true
 
 
 ##########################################
-# config panel
-##########################################
-# link seems to be overwritten after logout, but file content stays the same
-ln -sf  "$(pwd)"/dotfiles/config/xfce4/panel/whiskermenu-8.rc ~/.config/xfce4/panel/whiskermenu-8.rc
-
-
-##########################################
-# plank config
+# Plank Configuration
 # ----------------------------------------
 # - see also https://wiki.archlinux.org/index.php/Plank
 ##########################################
 cat ./dotfiles/config/plank/plank.ini | dconf load /
 if [[ -d  ~/.config/plank ]]; then rm -rf ~/.config/plank; fi
 ln -sf "$(pwd)"/dotfiles/config/plank ~/.config/plank
+# fix "horizontal line bug" in xfce
+# https://arcolinux.com/how-to-remove-the-shadow-around-the-plank-on-xfce/
+xfconf-query -c xfwm4 -p /general/show_dock_shadow -s "false"
 
 
 ##########################################
-# autostart entries
+# Autostart Entries
 ##########################################
-ln -sf  $(pwd)/dotfiles/config/autostart/Nextcloud-client.desktop ~/.config/autostart/Nextcloud-client.desktop
-ln -sf  $(pwd)/dotfiles/config/autostart/plank.desktop ~/.config/autostart/plank.desktop
+ln -sf  "$(pwd)"/dotfiles/config/autostart/Nextcloud-client.desktop ~/.config/autostart/Nextcloud-client.desktop
+ln -sf  "$(pwd)"/dotfiles/config/autostart/plank.desktop ~/.config/autostart/plank.desktop
+
+##########################################
+# Keyboard Shortcuts
+##########################################
+# tbd
+
+##########################################
+# LightDM and Greeter
+##########################################
+# tbd
