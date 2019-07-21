@@ -4,18 +4,19 @@
 # ------------
 # Initial config and installation of newly installed Manjaro.
 #
-# lastmod: 2019-07-20T21:36:42+02:00
+# lastmod: 2019-07-21T12:57:25+02:00
 # Change History:
 # ---------------
-#  - 2019-07-20: printf corrections, added qemu installations
-#  - 2019-07-18: moved install/custom. sections to own scripts
+#   - 2019-07-21: moved yay/pacman cleanup to new script
+#   - 2019-07-20: printf corrections, added qemu installations
+#   - 2019-07-18: moved install/custom. sections to own scripts
 
 # String definitions for colored printf output
 # [ ERROR ] in light red
 # [ INFO  ] in light green
 # [ INPUT ] in light yellow
 STR_ERROR="[ \e[91mERROR\e[0m ]"
-STR_INFO="[ \e[22mINFO\e[0m  ]"
+STR_INFO="[ \e[92mINFO\e[0m  ]"
 STR_INPUT="[ \e[93mINPUT\e[0m ]"
 
 ##########################################
@@ -102,18 +103,9 @@ printf "%b Installing yay...\n" "${STR_INFO}"
 sudo pacman -S --noconfirm --needed yay
 
 ##########################################
-# Remove orphans
+# Cleanup
 ##########################################
-printf "%b Removing orphans if any...\n" "${STR_INFO}"
-sudo pacman -Rscn --noconfirm "$(pacman -Qdtq)"
-
-##########################################
-# Clean pacman and yay caches
-##########################################
-printf "%b Cleaning caches...\n" "${STR_INFO}"
-sudo pacman -Scc --noconfirm
-yay -Sc --noconfirm
-sudo yay -Sc --noconfirm
+bash ./90-helper-cleanup.sh
 
 
 printf "%b Done.\n" "${STR_INFO}"

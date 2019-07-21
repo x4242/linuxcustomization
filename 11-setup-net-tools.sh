@@ -4,9 +4,10 @@
 # ------------
 # tbd
 #
-# lastmod: 2019-07-20T21:36:32+02:00
+# lastmod: 2019-07-21T13:29:29+02:00
 # Change History:
 # ---------------
+#   - 2019-07-21: added sudo/root check
 #   - 2019-07-20: printf corrections
 #   - 2019-07-18: created, moved from personal-setup.sh
 
@@ -17,6 +18,14 @@
 STR_ERROR="[ \e[91mERROR\e[0m ]"
 STR_INFO="[ \e[92mINFO\e[0m  ]"
 STR_INPUT="[ \e[93mINPUT\e[0m ]"
+
+##########################################
+# Check if root / sudo
+##########################################
+if [ "$EUID" -eq 0 ]; then
+  printf "%b Do not run with sudo / as root.\n" "${STR_ERROR}" >&2
+  exit 1
+fi
 
 printf "%b Installing network packages...\n" "${STR_INFO}"
 

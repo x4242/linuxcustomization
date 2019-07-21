@@ -2,7 +2,7 @@
 title: "My Dotfiles"
 description: ""
 date: 2019-06-15T10:33:24+02:00
-lastmod: 2019-07-18T10:35:05+02:00
+lastmod: 2019-07-21T13:32:36+02:00
 draft: true
 tags: [ "linux", "dotfiles" ]
 featuredimg: ""
@@ -15,6 +15,7 @@ featuredimg: ""
 -   **`0n-....sh`**: initial setup/config scripts for specific Arch-based distros
 -   **`1n-....sh`**: installation and config (if needed to run properly, no customization) scripts for diffrent tool categories
 -   **`2n-....sh`**: personalization scripts
+-   **`9n-....sh`**: helper scripts for use in other scripts
 
 ## General
 
