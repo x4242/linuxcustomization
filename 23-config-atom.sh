@@ -7,6 +7,7 @@
 # lastmod: 2019-07-20T13:49:21+02:00
 # Change History:
 # ---------------
+# - 2019-07-24: added packages 'sort-lines', removed 'wordcount'
 # - 2019-07-20:
 #   - changed output colors to light green/red/yellow
 #   - add checks if packages already installed and config files  exist
@@ -22,18 +23,18 @@ STR_INPUT="[ \e[93mINPUT\e[0m ]"
 
 # packages to be installed
 atom_packages=(
+               atom-beautify
+               autocomplete-python
+               busy-signal
                date
                highlight-selected
-               atom-beautify
-               wordcount
+               intentions
                language-markdown
                linter
-               linter-ui-default
-               intentions
-               busy-signal
                linter-pylint
                linter-shellcheck
-               autocomplete-python
+               linter-ui-default
+               sort-lines
               )
 
 # check if packages are already installed, if so do nothing, otherwise install
