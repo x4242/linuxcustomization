@@ -4,9 +4,13 @@
 # ------------
 # install and config tools for daily/std use + personalization
 #
-# lastmod: 2019-07-21T13:24:44+02:00
+# lastmod: 2019-09-08T11:00:10+02:00
 # Change History:
 # ---------------
+#  - 2019-09-08:
+#    - added pacman/yay db sync prior to install
+#    - added clamav, firewalld
+#  - 2019-07-27: added hunspell dictionaries fpr spell checking
 #  - 2019-07-21: added check if yay is installed and root/sudo
 #  - 2019-07-20:
 #    - added flameshot
@@ -30,6 +34,9 @@ if [ "$EUID" -eq 0 ]; then
   exit 1
 fi
 
+# sync databases
+sudo pacman -Sy
+
 printf "%b Installing standard packages...\n" "${STR_INFO}"
 
 ##########################################
@@ -37,8 +44,11 @@ printf "%b Installing standard packages...\n" "${STR_INFO}"
 ##########################################
 printf "%b Installing common packages...\n" "${STR_INFO}"
 sudo pacman -S --noconfirm --needed tmux
+sudo pacman -S --noconfirm --needed grc
 sudo pacman -S --noconfirm --needed vim
 sudo pacman -S --noconfirm --needed plank
+sudo pacman -S --noconfirm --needed hunspell-de
+sudo pacman -S --noconfirm --needed hunspell-en_US
 
 ##########################################
 # Install misc tools
@@ -59,11 +69,29 @@ sudo pacman -S --noconfirm --needed php
 sudo pacman -S --noconfirm --needed python-pylint
 sudo pacman -S --noconfirm --needed shellcheck
 
+# pip for python2
+sudo python2 -m ensurepip
+
+##########################################
+# Install security tools
+##########################################
+printf "%b Installing security packages...\n" "${STR_INFO}"
+# install, enable and update clamav
+sudo pacman -S --noconfirm --needed clamav
+sudo systemctl enable clamav-daemon.service
+sudo systemctl start clamav-daemon.service
+sudo freshclam
+# install, enable firewalld
+sudo pacman -S --noconfirm --needed firewalld
+sudo systemctl enable firewalld.service
+sudo systemctl start firewalld.service
+
 ##########################################
 # Install AUR packages
 ##########################################
 bash ./91-helper-check-installed.sh yay
 if [[ $? == 0 ]]; then
+  yay -Sy
   printf "%b Installing AUR customization packages...\n" "${STR_INFO}"
   yay -S --noconfirm equilux-theme
   yay -S --noconfirm ttf-roboto-mono

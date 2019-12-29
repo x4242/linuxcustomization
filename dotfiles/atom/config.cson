@@ -1,4 +1,6 @@
 "*":
+  "autocomplete-python":
+    useKite: false
   core:
     disabledPackages: [
       "metrics"
@@ -11,13 +13,17 @@
   editor:
     showIndentGuide: true
   "exception-reporting":
-    userId: "f709d414-d4bd-47b6-a062-655aa3848532"
+    userId: "528c3aef-7c0d-4ea5-91ee-8a0c64dff083"
   "line-ending-selector":
     defaultLineEnding: "LF"
+  "linter-spell":
+    spellingErrorSeverity: "info"
   "linter-ui-default":
     showPanel: true
   "markdown-preview-enhanced":
+    mathRenderingOption: "None"
     openPreviewPaneAutomatically: false
     previewTheme: "one-dark.css"
+    usePandocParser: true
   welcome:
     showOnStartup: false

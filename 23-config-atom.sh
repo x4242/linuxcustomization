@@ -7,6 +7,7 @@
 # lastmod: 2019-07-20T13:49:21+02:00
 # Change History:
 # ---------------
+# - 2019-07-27: added package 'linter-spell'
 # - 2019-07-24: added packages 'sort-lines', removed 'wordcount'
 # - 2019-07-20:
 #   - changed output colors to light green/red/yellow
@@ -33,6 +34,7 @@ atom_packages=(
                linter
                linter-pylint
                linter-shellcheck
+               linter-spell
                linter-ui-default
                sort-lines
               )

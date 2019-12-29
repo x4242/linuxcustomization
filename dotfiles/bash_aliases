@@ -1,4 +1,13 @@
-# lastmod: 2019-06-23T10:35:03+02:00
+# lastmod: 2019-08-04T10:00:36+02:00
 
+alias cp='cp -i'
+alias df='colourify df -h'
+alias du='colourify du -h'
+alias egrep='egrep --colour=auto'
 alias firefox='firefox -P'
+alias free='colourify free -h'
+alias grep='grep --colour=auto'
+alias ls='ls --color=auto'
+alias more='less'
+alias nmap='colourify nmap'
 alias vi='vim'

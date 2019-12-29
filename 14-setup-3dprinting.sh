@@ -2,15 +2,12 @@
 
 # Description:
 # ------------
-# tbd
+# install and config 3d printign tools
 #
-# lastmod: 2019-09-08T11:16:32+02:00
+# lastmod: 2019-12-29T13:00:11+01:00
 # Change History:
 # ---------------
-#   - 2019-09-08: added pacman/yay db snc prior to install
-#   - 2019-07-21: added sudo/root check
-#   - 2019-07-20: printf corrections
-#   - 2019-07-18: created, moved from personal-setup.sh
+#  - 2019-12-29: created
 
 # String definitions for colored printf output
 # [ ERROR ] in light red
@@ -31,24 +28,32 @@ fi
 # sync databases
 sudo pacman -Sy
 
-printf "%b Installing network packages...\n" "${STR_INFO}"
+printf "%b Installing 3d printing packages...\n" "${STR_INFO}"
 
 ##########################################
 # Official packages
 ##########################################
 printf "%b Installing official packages...\n" "${STR_INFO}"
-sudo pacman -S --noconfirm --needed wireshark-cli wireshark-qt
-sudo pacman -S --noconfirm --needed tcpdump
-sudo pacman -S --noconfirm --needed netcat
-sudo pacman -S --noconfirm --needed nmap
-sudo pacman -S --noconfirm --needed net-snmp
-sudo pacman -S --noconfirm --needed filezilla
-sudo pacman -S --noconfirm --needed dnsutils
+sudo pacman -S --noconfirm --needed cura
+sudo pacman -S --noconfirm --needed blender
+sudo pacman -S --noconfirm --needed openscad
+sudo pacman -S --noconfirm --needed boost # dep. for slic3r, ins't solved by yay
+
 
 ##########################################
-# AUR packages
+# Install AUR packages
 ##########################################
-# printf "${STR_INFO} Installing AUR packages...\n"
+bash ./91-helper-check-installed.sh yay
+if [[ $? == 0 ]]; then
+  yay -Sy
+  printf "%b Installing AUR packages...\n" "${STR_INFO}"
+  yay -S --noconfirm slic3r
+  yay -S --noconfirm printrun
+  yay -S --noconfirm freecad
+else
+  printf "%b Couldn't install AUR packages as 'yay' is not installed.\n" "${STR_ERROR}" >&2
+  exit 1
+fi
 
-printf "%b Done installing network packages.\n" "${STR_INFO}"
+printf "%b Done installing 3d printing packages.\n" "${STR_INFO}"
 exit 0
