@@ -4,9 +4,10 @@
 # ------------
 # install and config 3d printign tools
 #
-# lastmod: 2019-12-29T13:00:11+01:00
+# lastmod: 2020-01-04T13:54:03+01:00
 # Change History:
 # ---------------
+#  - 2020-01-04: added missing slic3r dep.
 #  - 2019-12-29: created
 
 # String definitions for colored printf output
@@ -48,6 +49,9 @@ if [[ $? == 0 ]]; then
   yay -Sy
   printf "%b Installing AUR packages...\n" "${STR_INFO}"
   yay -S --noconfirm slic3r
+  yay -S --noconfirm perl-wx # dep. for slic3r
+  yay -S --noconfirm perl-opengl # dep. for slic3r
+  yay -S --noconfirm perl-wx-glcanvas # dep. for slic3r
   yay -S --noconfirm printrun
   yay -S --noconfirm freecad
 else

@@ -1,0 +1,10 @@
+# load custom aliases
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
+# load grc aliasas
+[[ -s '/etc/profile.d/grc.bashrc' ]] && source /etc/profile.d/grc.bashrc
+
+# change sudoedit editor to vim
+export SUDO_EDITOR=vim
