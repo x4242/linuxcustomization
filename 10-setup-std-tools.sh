@@ -4,9 +4,10 @@
 # ------------
 # install and config tools for daily/std use + personalization
 #
-# lastmod: 2019-09-08T11:00:10+02:00
+# lastmod: 2020-01-23T16:35:07+01:00
 # Change History:
 # ---------------
+#  - 2020-01-23: added docker, docker-compose and hadolinter
 #  - 2019-09-08:
 #    - added pacman/yay db sync prior to install
 #    - added clamav, firewalld
@@ -64,6 +65,8 @@ sudo pacman -S --noconfirm --needed flameshot
 ##########################################
 printf "%b Installing development packages...\n" "${STR_INFO}"
 sudo pacman -S --noconfirm --needed atom
+sudo pacman -S --noconfirm --needed docker
+sudo pacman -S --noconfirm --needed docker-compose
 sudo pacman -S --noconfirm --needed hugo
 sudo pacman -S --noconfirm --needed php
 sudo pacman -S --noconfirm --needed python-pylint
@@ -71,6 +74,9 @@ sudo pacman -S --noconfirm --needed shellcheck
 
 # pip for python2
 sudo python2 -m ensurepip
+
+# enable docker
+sudo systemctl enable docker.service
 
 ##########################################
 # Install security tools
@@ -94,6 +100,7 @@ if [[ $? == 0 ]]; then
   yay -Sy
   printf "%b Installing AUR customization packages...\n" "${STR_INFO}"
   yay -S --noconfirm equilux-theme
+  yay -S --noconfirm hadolinter-bin
   yay -S --noconfirm ttf-roboto-mono
 else
   printf "%b Couldn't install AUR packages as 'yay' is not installed.\n" "${STR_ERROR}" >&2

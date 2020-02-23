@@ -4,9 +4,10 @@
 # ------------
 # Install Atom packeages and link config files.
 #
-# lastmod: 2019-07-20T13:49:21+02:00
+# lastmod: 2020-01-23T16:36:39+01:00
 # Change History:
 # ---------------
+# - 2020-01-23: added packages language-docker, linter-hadolint
 # - 2019-07-27: added package 'linter-spell'
 # - 2019-07-24: added packages 'sort-lines', removed 'wordcount'
 # - 2019-07-20:
@@ -30,8 +31,10 @@ atom_packages=(
                date
                highlight-selected
                intentions
+               language-docker
                language-markdown
                linter
+               linter-hadolinter
                linter-pylint
                linter-shellcheck
                linter-spell

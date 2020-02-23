@@ -4,9 +4,13 @@
 # ------------
 # tbd
 #
-# lastmod: 2019-07-21T11:56:42+02:00
+# lastmod: 2020-01-19T12:20:05+01:00
 # Change History:
 # ---------------
+#   - 2020-01-19: added auto-resizing of icons for panel and notification area
+#   - 2020-01-09:
+#     - correted shortcut creation (added --type)
+#     - added lightdm-gtk-greeter settings
 #   - 2019-07-21: added keyboard shortcuts
 #   - 2019-07-20: prtinf corrections
 #   - 2019-07-19:
@@ -59,7 +63,14 @@ xfconf-query --channel xfce4-desktop --property /desktop-icons/style --set 0
 # ln -sf  "$(pwd)"/dotfiles/config/xfce4/panel/whiskermenu-8.rc ~/.config/xfce4/panel/whiskermenu-8.rc
 # set panel position to top (p=6), no idea what x/y does
 xfconf-query --channel xfce4-panel --property /panels/panel-0/position --set "p=6;x=400;y=14"
+# set icon size to automatically
+xfconf-query --channel xfce4-panel --property /panels/panel-0/icon-size --set "0"
 
+# notifications area
+# set max-icon size for auto-resizing
+xfconf-query --channel xfce4-panel --property  /plugins/plugin-6/size-max --set "64"
+# set suqare-icons for nicer look
+xfconf-query --channel xfce4-panel --property  /plugins/plugin-6/square-icons --set true
 
 ##########################################
 # Thunar Configuration
@@ -111,32 +122,36 @@ cp "$(pwd)"/dotfiles/config/autostart/plank.desktop ~/.config/autostart/plank.de
 # Keyboard Shortcuts
 ##########################################
 # Open xfce4-Terminal: super + t
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/commands/custom/<Super>t" --set "xfce4-terminal"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/commands/custom/<Super>t" --type string --set "xfce4-terminal"
 # Lock: super + l
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/commands/custom/<Super>l" --set "xflock4"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/commands/custom/<Super>l" --type string --set "xflock4"
 # tile window lower left quarter: alt + super + left
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Alt><Super>Left" --set "tile_down_left_key"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Alt><Super>Left" --type string --set "tile_down_left_key"
 # tile window lower right quarter: alt + super + right
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Alt><Super>Right" --set "tile_down_right_key"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Alt><Super>Right" --type string --set "tile_down_right_key"
 # tile window lower half: super + down
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>Down" --set "tile_down_key"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>Down" --type string --set "tile_down_key"
 # tile window left half: super + left
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>Left" --set "tile_left_key"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>Left" --type string --set "tile_left_key"
 # tile window right half: super + right
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>Right" --set "tile_right_key"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>Right" --type string --set "tile_right_key"
 # tile window upper half: super + up
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>Up" --set "tile_up_key"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>Up" --type string --set "tile_up_key"
 # tile window upper left quarter: ctrl + super + left
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Primary><Super>Left" --set "tile_up_left_key"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Primary><Super>Left" --type string --set "tile_up_left_key"
 # tile window upper right quarter: ctrl + super + right
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Primary><Super>Right" --set "tile_up_right_key"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Primary><Super>Right" --type string --set "tile_up_right_key"
 # take screenshot with flameshot: print
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/commands/custom/Print" --set "flameshot gui"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/commands/custom/Print" --type string --set "flameshot gui"
 # show desktop: super + d
-xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>d" --set "show_desktop_key"
+xfconf-query --channel xfce4-keyboard-shortcuts --create --property "/xfwm4/custom/<Super>d" --type string --set "show_desktop_key"
 
+
+# TODO
+# - remove whiskermenu shortcuts Super L & Super R as it causes problems with other super shortcuts
 
 ##########################################
 # LightDM and Greeter
 ##########################################
-# tbd
+# link config file
+sudo cp -sf "$(pwd)"/dotfiles/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf

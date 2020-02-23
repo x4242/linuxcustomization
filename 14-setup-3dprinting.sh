@@ -4,9 +4,12 @@
 # ------------
 # install and config 3d printign tools
 #
-# lastmod: 2020-01-04T13:54:03+01:00
+# lastmod: 2020-01-19T11:46:00+01:00
 # Change History:
 # ---------------
+#  - 2020-01-19:
+#    - out commented slic3r+dependencies
+#    - changed printrun to printrun-git
 #  - 2020-01-04: added missing slic3r dep.
 #  - 2019-12-29: created
 
@@ -38,7 +41,7 @@ printf "%b Installing official packages...\n" "${STR_INFO}"
 sudo pacman -S --noconfirm --needed cura
 sudo pacman -S --noconfirm --needed blender
 sudo pacman -S --noconfirm --needed openscad
-sudo pacman -S --noconfirm --needed boost # dep. for slic3r, ins't solved by yay
+# sudo pacman -S --noconfirm --needed boost # dep. for slic3r, ins't solved by yay
 
 
 ##########################################
@@ -48,11 +51,11 @@ bash ./91-helper-check-installed.sh yay
 if [[ $? == 0 ]]; then
   yay -Sy
   printf "%b Installing AUR packages...\n" "${STR_INFO}"
-  yay -S --noconfirm slic3r
-  yay -S --noconfirm perl-wx # dep. for slic3r
-  yay -S --noconfirm perl-opengl # dep. for slic3r
-  yay -S --noconfirm perl-wx-glcanvas # dep. for slic3r
-  yay -S --noconfirm printrun
+  # yay -S --noconfirm slic3r
+  # yay -S --noconfirm perl-wx # dep. for slic3r
+  # yay -S --noconfirm perl-opengl # dep. for slic3r
+  # yay -S --noconfirm perl-wx-glcanvas # dep. for slic3r
+  yay -S --noconfirm printrun-git
   yay -S --noconfirm freecad
 else
   printf "%b Couldn't install AUR packages as 'yay' is not installed.\n" "${STR_ERROR}" >&2

@@ -4,9 +4,10 @@
 # ------------
 # tbd
 #
-# lastmod: 2019-09-08T11:16:32+02:00
+# lastmod: 2020-02-09T14:55:54+01:00
 # Change History:
 # ---------------
+#   - 2020-02-09: corret package 'netcat' to 'gnu-netcat'
 #   - 2019-09-08: added pacman/yay db snc prior to install
 #   - 2019-07-21: added sudo/root check
 #   - 2019-07-20: printf corrections
@@ -39,7 +40,7 @@ printf "%b Installing network packages...\n" "${STR_INFO}"
 printf "%b Installing official packages...\n" "${STR_INFO}"
 sudo pacman -S --noconfirm --needed wireshark-cli wireshark-qt
 sudo pacman -S --noconfirm --needed tcpdump
-sudo pacman -S --noconfirm --needed netcat
+sudo pacman -S --noconfirm --needed gnu-netcat
 sudo pacman -S --noconfirm --needed nmap
 sudo pacman -S --noconfirm --needed net-snmp
 sudo pacman -S --noconfirm --needed filezilla

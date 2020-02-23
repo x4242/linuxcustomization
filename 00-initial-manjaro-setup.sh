@@ -1,12 +1,21 @@
 #!/usr/bin/env bash
-
-# Description:
-# ------------
+#
+# ----------------------------------------
+# Description
+# ----------------------------------------
 # Initial config and installation of newly installed Manjaro.
 #
-# lastmod: 2019-07-21T12:57:25+02:00
-# Change History:
-# ---------------
+# ----------------------------------------
+# License
+# ----------------------------------------
+# tbd
+#
+# ----------------------------------------
+# Change History
+# ----------------------------------------
+# lastmod: 2020-01-26T23:37:59+01:00
+# changelog:
+#   - 2020-01-26: changed doc style
 #   - 2019-07-21: moved yay/pacman cleanup to new script
 #   - 2019-07-20: printf corrections, added qemu installations
 #   - 2019-07-18: moved install/custom. sections to own scripts

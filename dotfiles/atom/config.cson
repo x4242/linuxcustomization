@@ -18,8 +18,7 @@
     defaultLineEnding: "LF"
   "linter-spell":
     spellingErrorSeverity: "info"
-  "linter-ui-default":
-    showPanel: true
+  "linter-ui-default": {}
   "markdown-preview-enhanced":
     mathRenderingOption: "None"
     openPreviewPaneAutomatically: false

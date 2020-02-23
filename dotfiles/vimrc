@@ -1,4 +1,7 @@
-" lastmod: 2019-07-10T12:12:16+02:00
+" lastmod: 2020-01-19T11:40:53+01:00
+" Change History:
+" ---------------
+"   - 2010-01-19: removed double laststatus=2
 
 " http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'
 set nocompatible              " be iMproved, required
@@ -15,8 +18,6 @@ Plugin 'itchyny/lightline.vim'  " https://github.com/itchyny/lightline.vim
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-set laststatus=2  " fix for when lightline is not showing
 
 " Last window will have status line: 2=always
 " - http://vimdoc.sourceforge.net/htmldoc/options.html#'laststatus'
