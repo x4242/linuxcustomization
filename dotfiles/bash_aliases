@@ -2,3 +2,4 @@
 
 alias firefox='firefox -P'
 alias vi='vim'
+alias rm='rm -i'

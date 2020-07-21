@@ -1,9 +1,11 @@
 "*":
+  "autocomplete-python":
+    useKite: false
   core:
     disabledPackages: [
       "metrics"
       "language-gfm"
-      "markdown-preview"
+      "markdown-preview-enhanced"
     ]
     telemetryConsent: "no"
   date:
@@ -14,8 +16,7 @@
     userId: "f709d414-d4bd-47b6-a062-655aa3848532"
   "line-ending-selector":
     defaultLineEnding: "LF"
-  "linter-ui-default":
-    showPanel: true
+  "linter-ui-default": {}
   "markdown-preview-enhanced":
     openPreviewPaneAutomatically: false
     previewTheme: "one-dark.css"
