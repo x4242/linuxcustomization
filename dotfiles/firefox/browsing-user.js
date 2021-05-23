@@ -1,10 +1,10 @@
-// lastmod: 2020-01-18T10:39:36+01:00
+// lastmod: 2020-12-22T14:21:06+01:00
 
 user_pref("browser.download.useDownloadDir", false); // ask where to download files
 user_pref("browser.download.manager.addToRecentDocs", false); // disable adding downloads to the system's "recent documents" list
 user_pref("browser.newtabpage.enabled", false); // set newtab page to about:blank
-user_pref("browser.startup.homepage", "about:blank"); // set home page to about:blank
-user_pref("browser.startup.page", 0); // set start page to about:blank
+user_pref("browser.startup.homepage", "https://solomon.int.0x4242.net"); // set home page to about:blank
+user_pref("browser.startup.page", 1; // set start page homepage
 user_pref("browser.urlbar.clickSelectsAll", true); // enable select whole address when clicking on it
 user_pref("browser.urlbar.doubleClickSelectsAll", false); // disable select whole address when double-clicking on it
 
@@ -34,5 +34,7 @@ user_pref("geo.enabled", false);
 
 user_pref("media.navigator.enabled", false);
 user_pref("media.peerconnection.enabled", false);
+
+user_pref("mousewheel.min_line_scroll_amount", 60); // set mouse wheel scroll speed
 
 user_pref("webgl.disabled", true);

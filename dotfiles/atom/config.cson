@@ -6,11 +6,13 @@
       "metrics"
       "language-gfm"
       "markdown-preview"
+      "spell-check"
     ]
     telemetryConsent: "no"
   date:
     dateTimeFormat: "YYYY-MM-DDTHH:mm:ssZ"
   editor:
+    fontSize: 13
     showIndentGuide: true
   "exception-reporting":
     userId: "528c3aef-7c0d-4ea5-91ee-8a0c64dff083"
@@ -18,11 +20,15 @@
     defaultLineEnding: "LF"
   "linter-spell":
     spellingErrorSeverity: "info"
-  "linter-ui-default": {}
-  "markdown-preview-enhanced":
-    mathRenderingOption: "None"
-    openPreviewPaneAutomatically: false
-    previewTheme: "one-dark.css"
-    usePandocParser: true
+  "linter-ui-default":
+    panelHeight: 203
+    showPanel: true
+  "markdown-preview-plus":
+    pandocConfig: {}
+    renderer: "pandoc"
+    syncConfig:
+      syncEditorOnPreviewScroll: true
+      syncPreviewOnChange: true
+      syncPreviewOnEditorScroll: true
   welcome:
     showOnStartup: false

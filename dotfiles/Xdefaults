@@ -1,0 +1,25 @@
+! lastmod: 2020-03-26T14:15:24+01:00
+URxvt.letterSpace: 1
+URxvt.font: xft:Roboto Mono for Powerline:size=12,xft:Droid Sans Mono for Powerline:size=12,xft:Roboto Mono:size=12
+URxvt.boldFont: xft:Roboto Mono for Powerline:bold:size=12,xft:Droid Sans Mono for Powerline:bold:size=12,xft:Roboto Mono:bold:size=12
+URxvt.italicFont: xft:Roboto Mono for Powerline:italic:size=12,xft:Droid Sans Mono for Powerline:italic:size=12,xft:Roboto Mono:italic:size=12
+URxvt.boldItalicFont: xft:Roboto Mono for Powerline:bold:italic:size=12,xft:Droid Sans Mono for Powerline:bold:italic:size=12,xft:Roboto Mono:Bold:italic:size=12
+
+URxvt.background: rgb:00/00/00
+URxvt.foreground: rgb:ff/ff/ff
+
+URxvt.scrollBar: false
+URxvt.visualBell: true
+URxvt.cursorBlink: true
+
+! enable Ctrl-Shift-c/v for copy/paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! disable Copy/Paste with meta key bindings
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+
+! disbale ISO14755 input, conflicts with copy/paste keybindings
+URxvt.iso14755: false
+URxvt.iso14755_52: false

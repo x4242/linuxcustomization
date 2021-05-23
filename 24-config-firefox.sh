@@ -4,9 +4,10 @@
 # ------------
 # setup custom firefox profiles
 #
-# lastmod: 2020-01-18T11:04:49+01:00
+# lastmod: 2020-09-18T10:49:00+02:00
 # Change History:
 # ---------------
+#   - 2020-10-18: added floccus extension download
 #   - 2020-01-18:
 #     - added yes/no checks before creating profiles
 #     - added printfs for extensions and wget progressbar only (-q --show-progress)
@@ -18,7 +19,7 @@
 # [ ERROR ] in light red
 # [ INFO  ] in light green
 # [ INPUT ] in light yellow
-STR_ERROR="[ \e[91mERROR\e[0m ]"
+#STR_ERROR="[ \e[91mERROR\e[0m ]"
 STR_INFO="[ \e[92mINFO\e[0m  ]"
 STR_INPUT="[ \e[93mINPUT\e[0m ]"
 
@@ -58,10 +59,12 @@ case $yes_no in
     wget -q --show-progress https://addons.mozilla.org/firefox/downloads/file/1688114/privacy_badger.xpi -O ${profile_path}/extensions/jid1-MnnxcxisBPnSXQ@jetpack.xpi
     printf "%b Downloading \'Disconnect\' extension...\n" "${STR_INFO}"
     wget -q --show-progress https://addons.mozilla.org/firefox/downloads/file/621553/disconnect.xpi -O ${profile_path}/extensions/2.0@disconnect.me.xpi
+    printf "%b Downloading \'floccus\' extension...\n" "${STR_INFO}"
+    wget -q --show-progress https://addons.mozilla.org/firefox/downloads/file/3589976/floccus.xpi -O ${profile_path}/extensions/2.0@disconnect.me.xpi
 
     # link Firefox user.js
     ln -sf "$(pwd)"/dotfiles/firefox/browsing-user.js ${profile_path}/user.js
-    printf "%b Done. Don't forget the enable plugins.\n" "${STR_INFO}"
+    printf "%b Done. Don't forget to enable the plugins.\n" "${STR_INFO}"
     ;;
 esac
 

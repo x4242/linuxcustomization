@@ -18,7 +18,7 @@
 # [ INPUT ] in light yellow
 STR_ERROR="[ \e[91mERROR\e[0m ]"
 STR_INFO="[ \e[92mINFO\e[0m  ]"
-STR_INPUT="[ \e[93mINPUT\e[0m ]"
+#STR_INPUT="[ \e[93mINPUT\e[0m ]"
 
 ##########################################
 # Check if root / sudo
